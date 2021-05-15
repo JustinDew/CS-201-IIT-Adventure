@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class Player extends Student{
 	int studyEnergy;
-	double GPA;
 	Random rand = new Random();
 	public Player(String name, String major, String housing) {
 		studyEnergy = 4;
