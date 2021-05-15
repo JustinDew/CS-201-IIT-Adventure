@@ -3,7 +3,7 @@ package pack;
 public class Course {
 	double grade;
 	String name;
-	double currentPoints, totalPoints, totalClasses;
+	double currentPoints, totalPoints;
 	int testReadiness, hours, attendence;
 	Professor prof;
 	public Course(String name, String profName, int rapportReq, int hours) {
