@@ -8,9 +8,11 @@ public class Professor {
 		this.name = name;
 		this.rapportReq = rapportReq;
 	}
+	//returns current rapport
 	public int getRapport() {
 		return rapport;
 	}
+	//raises rapport
 	public void raiseRapport() {
 		rapport++;
 		if(rapport >= rapportReq) {
@@ -19,6 +21,7 @@ public class Professor {
 			likesPlayer = false;
 		}
 	}
+	//returns professor's name
 	public String getName() {
 		return name;
 	}

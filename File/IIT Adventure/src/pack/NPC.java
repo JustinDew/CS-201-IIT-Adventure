@@ -12,6 +12,7 @@ public class NPC extends Student{
 		this.housing = housing;
 		rapportReq = rand.nextInt(3) + 3;
 		
+		//automatically raises rapport for same housing and major as the player
 		if(player.housing.equals(housing)) {
 			rapport++;
 		}
@@ -20,15 +21,19 @@ public class NPC extends Student{
 		}
 		
 	}
+	//raises rapport
 	public void raiseRapport() {
 		rapport++;
 	}
+	//lowers rapport
 	public void lowerRapport() {
 		rapport--;
 	}
+	//sets rapport requirement
 	public void setRapportReq(int num) {
 		rapportReq = num;
 	}
+	//checks if rapport is high enough to become friends
 	public boolean rapportCheck() {
 		if(rapport >= rapportReq) {
 			isFriend = true;
@@ -37,6 +42,7 @@ public class NPC extends Student{
 			return false;
 		}
 	}
+	//returns rapport requirement
 	public int getRapportReq() {
 		return rapportReq;
 	}

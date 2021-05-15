@@ -13,6 +13,7 @@ public class Player extends Student{
 		this.housing = housing;
 		this.major = major;
 	}
+	//method for studying
 	public void study(int hours, Course course, Time time) {
 		if(studyEnergy == 0){
 			System.out.println("You don't have it in you to study right now");
@@ -37,6 +38,7 @@ public class Player extends Student{
 		}
 		System.out.println("course readiness: " + course.testReadiness);
 	}
+	//method for sleeping
 	public void sleep(Time time) {
 		int hours;
 		if(time.getTime() > 8) {
@@ -48,6 +50,7 @@ public class Player extends Student{
 		System.out.println("You slept for " + hours + " hours");
 		time.addTime(hours);
 	}
+	//method for attending class. If it is a test day, there will be a test
 	public void attendClass(Course course, int hours, int testDay, Time time) {
 		course.getProfessor().rapport++;
 		if(testDay - time.getDayNum() <= 5 && testDay - time.getDayNum() > 0) {
@@ -63,16 +66,20 @@ public class Player extends Student{
 		time.addTime(hours);
 		System.out.println("Readiness: " + course.testReadiness);
 	}
+	//method for attdending a class without tests
 	public void attendClass(Course course, int hours, Time time) {
 		course.getProfessor().rapport++;
 		System.out.println("You attended " + course.name + " class.");
 		time.addTime(hours);
 		course.attendence++;
 	}
+	//method for regaining study energy by playing video games
 	public void playVideoGames(int hours, Time time) {
 		time.addTime(hours);
 		studyEnergy+=(hours/3);
 	}
+	//method for regaining study energy by hanging out with a friend. This is more efficient in recovering
+	//studying energy than playing video games
 	public void hangoutWithFriend(NPC npc, Time time) {
 		int hours = rand.nextInt(4) + 1;
 		studyEnergy+=hours/2;
@@ -80,15 +87,7 @@ public class Player extends Student{
 		npc.rapport++;
 		System.out.println("You ended up hanging out with " + npc.name + " for " + hours + " hours.");
 	}
-	public void askForExtraCredit(Course course) {
-		if(course.getProfessor().getRapport() >= course.prof.rapportReq) {
-			System.out.println("Professor " + course.prof + " gave you extra credit.");
-			course.currentPoints++;
-			course.prof.rapport-=course.prof.rapportReq;
-		}else {
-			System.out.println("Professor " + course.prof + " did not give you extra credit.");
-		}
-	}
+	//checks the grade of a specific course
 	public void checkGrades(Course course) {
 		System.out.println(course.name.toUpperCase()+ ": " + course.grade);
 	}
